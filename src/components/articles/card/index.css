@@ -1,0 +1,14 @@
+.article-card-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.article-card-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 100ms ease-in-out;
+}
