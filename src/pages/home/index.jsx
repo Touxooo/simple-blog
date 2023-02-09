@@ -4,7 +4,7 @@ import "./index.css";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-page-container">
       <ArticleList />
     </div>
   );

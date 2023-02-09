@@ -5,8 +5,11 @@ const ArticleCard = ({ article }) => {
   return (
     <div className="article-card-container">
       <h3>{article.title}</h3>
-      <span>{article.author}</span>
-      <span>{article.creation_date}</span>
+      <p className="article-card-body">{article.body}</p>
+      <div className="article-card-metadata-container">
+        <span>{article.author}</span>
+        <span>{article.creation_date}</span>
+      </div>
     </div>
   );
 };
