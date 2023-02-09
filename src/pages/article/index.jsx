@@ -9,9 +9,11 @@ const ArticlePage = () => {
   return (
     <div className="article-page-container">
       <h1>{article.title}</h1>
-      <span>{article.author}</span>
       <p>{article.body}</p>
-      <span>{article.creation_date}</span>
+      <div className="article-page-metadata-container">
+        <span>{article.author}</span>
+        <span>{article.creation_date}</span>
+      </div>
     </div>
   );
 };

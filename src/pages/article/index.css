@@ -3,5 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 10px;
+  text-align: left;
+}
+
+.article-page-metadata-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
