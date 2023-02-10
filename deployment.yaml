@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: web
+  template:
+    metadata:
+      labels:
+        service: web
+    spec:
+      containers:
+        - args:
+            - bash
+            - -c
+            - npm run dev
+          image: nowhanos/pipeline:latest
+          name: simple blog
+          ports:
+            - containerPort: 5173
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 250Mi
+      restartPolicy: Always
