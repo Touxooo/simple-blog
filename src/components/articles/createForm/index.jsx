@@ -30,12 +30,14 @@ const CreateArticleForm = () => {
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
     window.alert(JSON.stringify(data));
+    reset();
   };
 
   const body = watch("body");
