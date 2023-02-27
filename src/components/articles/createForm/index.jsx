@@ -2,9 +2,36 @@ import React from "react";
 import "./index.css";
 
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object({
+  title: yup
+    .string()
+    .required("The title is required")
+    .max(128, "The title is too long, maximum 128 characters"),
+  description: yup
+    .string()
+    .required("The description is required")
+    .max(256, "The description is too long, maximum 256 characters"),
+  body: yup
+    .string()
+    .required("The body is required")
+    .max(2048, "The body is too long, maximum 2048 characters"),
+  author: yup
+    .string()
+    .required("The author is required")
+    .max(64, "The author is too long, maximum 64 characters"),
+});
 
 const CreateArticleForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     window.alert(JSON.stringify(data));
@@ -21,12 +48,14 @@ const CreateArticleForm = () => {
         placeholder="Title"
         {...register("title")}
       />
+      <p className="create-article-form-error">{errors.title?.message}</p>
       <input
         className="create-article-form-input"
         type="text"
         placeholder="Description"
         {...register("description")}
       />
+      <p className="create-article-form-error">{errors.description?.message}</p>
       <textarea
         className="create-article-form-input body"
         type="text"
@@ -34,14 +63,16 @@ const CreateArticleForm = () => {
         rows={10}
         {...register("body")}
       />
+      <p className="create-article-form-error">{errors.body?.message}</p>
       <input
         className="create-article-form-input"
         type="text"
         placeholder="Author"
         {...register("author")}
       />
+      <p className="create-article-form-error">{errors.author?.message}</p>
       <button className="create-article-form-button" type="submit">
-        Submit article
+        Submit Article
       </button>
     </form>
   );

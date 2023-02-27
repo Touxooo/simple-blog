@@ -38,3 +38,11 @@
   outline: none;
   cursor: pointer;
 }
+
+.create-article-form-error {
+  color: #646cff;
+  font-weight: 300;
+  width: 50%;
+  text-align: left;
+  margin: 0;
+}
