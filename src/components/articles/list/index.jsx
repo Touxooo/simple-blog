@@ -1,10 +1,9 @@
 import React from "react";
 import "./index.css";
 
-import articles from "../../../constants/articles";
 import ArticleCard from "../card";
 
-const ArticleList = () => {
+const ArticleList = ({ articles }) => {
   return (
     <div className="article-list-container">
       {articles.map((article) => (
