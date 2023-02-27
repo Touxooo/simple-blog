@@ -4,6 +4,7 @@ import "./index.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import MyInput from "../../global/input";
 
 const schema = yup.object({
   title: yup
@@ -47,41 +48,36 @@ const CreateArticleForm = () => {
       className="create-article-form-container"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <input
-        className="create-article-form-input"
-        type="text"
+      <MyInput
+        title="Title"
+        register={register("title")}
+        errorLabel={errors.title?.message}
         placeholder="Title"
-        {...register("title")}
       />
-      <p className="create-article-form-error">{errors.title?.message}</p>
-      <input
-        className="create-article-form-input"
-        type="text"
+      <MyInput
+        title="Description"
+        register={register("description")}
+        errorLabel={errors.description?.message}
         placeholder="Description"
-        {...register("description")}
       />
-      <p className="create-article-form-error">{errors.description?.message}</p>
-      <textarea
-        className="create-article-form-input body"
-        type="text"
+      <MyInput
+        title="Body"
+        register={register("body")}
+        errorLabel={errors.body?.message}
         placeholder="Body"
-        rows={10}
+        textArea
+        rows={5}
         maxLength={2048}
-        {...register("body")}
+        actualLength={body?.length}
       />
-      <div className="create-article-form-body-details">
-        <p className="create-article-form-error body">{errors.body?.message}</p>
-        <p>{body?.length}/2048</p>
-      </div>
-      <input
-        className="create-article-form-input"
-        type="text"
+      <MyInput
+        title="Author"
+        register={register("author")}
+        errorLabel={errors.author?.message}
         placeholder="Author"
-        {...register("author")}
       />
-      <p className="create-article-form-error">{errors.author?.message}</p>
       <button className="create-article-form-button" type="submit">
-        Submit Article
+        Publish 🚀
       </button>
     </form>
   );
