@@ -28,6 +28,7 @@ const CreateArticleForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -36,6 +37,8 @@ const CreateArticleForm = () => {
   const onSubmit = (data) => {
     window.alert(JSON.stringify(data));
   };
+
+  const body = watch("body");
 
   return (
     <form
@@ -61,9 +64,13 @@ const CreateArticleForm = () => {
         type="text"
         placeholder="Body"
         rows={10}
+        maxLength={2048}
         {...register("body")}
       />
-      <p className="create-article-form-error">{errors.body?.message}</p>
+      <div className="create-article-form-body-details">
+        <p className="create-article-form-error body">{errors.body?.message}</p>
+        <p>{body?.length}/2048</p>
+      </div>
       <input
         className="create-article-form-input"
         type="text"
