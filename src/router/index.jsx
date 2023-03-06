@@ -3,9 +3,10 @@ import HomePage from "../pages/home";
 import ArticlePage from "../pages/article";
 import CreateArticlePage from "../pages/createArticle";
 import Navbar from "../components/global/navbar";
+import NotFoundPage from "../pages/notFound";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <HomePage />, errorElement: <NotFoundPage /> },
   { path: "/article/:id", element: <ArticlePage /> },
   { path: "/create-article", element: <CreateArticlePage /> },
 ]);

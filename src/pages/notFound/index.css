@@ -1,0 +1,30 @@
+.not-found-page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.not-found-page-oops {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #b8b8b8de;
+}
+
+.not-found-page-404 {
+  font-size: 16rem;
+  font-weight: 700;
+  color: #ffffffde;
+}
+
+.not-found-page-not-found {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffffde;
+}
