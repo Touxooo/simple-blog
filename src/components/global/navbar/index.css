@@ -1,0 +1,16 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.navbar-button {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-container {
+    flex-direction: column;
+  }
+}

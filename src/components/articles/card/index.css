@@ -6,10 +6,13 @@
   padding: 10px 0;
   cursor: pointer;
   text-align: left;
+  color: #ffffffde;
+  text-decoration: none;
 }
 
 .article-card-container:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffffde;
   transition: 100ms ease-in-out;
 }
 
