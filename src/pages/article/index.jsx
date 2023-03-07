@@ -3,13 +3,15 @@ import "./index.css";
 
 import { useParams } from "react-router-dom";
 
-import articles from "../../constants/articles";
 import ArticleHeader from "../../components/articles/header";
 import ArticleBody from "../../components/articles/body";
+import { getArticleById } from "../../services/api/articles/read";
 
 const ArticlePage = () => {
   const { id } = useParams();
-  const article = articles[id];
+  const article = getArticleById(id);
+
+  if (!article) return <h1>Article not found</h1>;
 
   return (
     <div className="article-page-container">
