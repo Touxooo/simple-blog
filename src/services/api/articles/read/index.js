@@ -9,3 +9,11 @@ export const getArticleById = (id) => {
 export const getArticles = () => {
   return articles;
 };
+
+export const getFilteredArticles = (filter) => {
+  const filteredArticles = articles.filter((article) => {
+    return article.title.toLowerCase().includes(filter.toLowerCase());
+  });
+
+  return filteredArticles;
+};
