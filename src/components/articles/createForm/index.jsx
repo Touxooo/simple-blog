@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import MyInput from "../../global/input";
+import api from "../../../api";
 
 const schema = yup.object({
   title: yup
@@ -36,9 +37,14 @@ const CreateArticleForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    window.alert(JSON.stringify(data));
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      await api.articles.createArticle(data);
+      reset();
+      alert("Article created successfully! 🎉");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const body = watch("body");

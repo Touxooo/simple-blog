@@ -3,7 +3,6 @@ import "./index.css";
 
 import ArticleCard from "../card";
 import SearchBar from "../../global/searchBar";
-import api from "../../../api";
 
 const ArticleList = ({ articles }) => {
   const [searchTerm, setSearchTerm] = React.useState("");
